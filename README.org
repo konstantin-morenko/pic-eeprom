@@ -1,0 +1,24 @@
+
+
+Set placement in eeprom ~const char eeConst = 0x00;~
+
+
+Usage of ~void eepromReadObj(word addr, void *obj, byte size);~
+like ~eepromReadObj(eeConst, &tmp, sizeof(tmp));~
+
+
+~void eepromWriteObj(word addr, void *obj, byte size);~
+
+
+Predefined eeprom data
+#+begin_src c
+__EEPROM_DATA(0x00, 0x09, 0x3d, 0x00, 0x00, 0x01, 0x00, 0x1e); // 0-7
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x0f, 0x00, 0x07, 0x00, 0x00); // 8-f
+__EEPROM_DATA(0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00); // 10-7
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00); // 18-f
+__EEPROM_DATA(0x00, 0x00, 0x00, 0   , 0   , 0   , 0   , 0   ); // 20-7
+// 00-03 constant
+// 04-09 last timer (counter.h)
+// 0a-0b+0c-0d dim_set[0,1]
+// 0e-17 - alarm
+#+end_src
